@@ -21,4 +21,4 @@ WORKDIR /root
 EXPOSE 28090
 EXPOSE 9999
 
-ENTRYPOINT witness_node --data-dir=trusted_node --rpc-endpoint="0.0.0.0:28090" --p2p-endpoint="0.0.0.0:9999"
+ENTRYPOINT witness_node --data-dir=trusted_node --rpc-endpoint="0.0.0.0:28090" --p2p-endpoint="0.0.0.0:9999" $WID $WKEY
