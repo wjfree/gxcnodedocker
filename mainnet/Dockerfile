@@ -7,8 +7,11 @@ RUN apt install software-properties-common -y \
         && apt update \
         && apt install libstdc++-7-dev -y
         
+        
 #添加公信宝执行路径
 ENV PATH $PATH:/root/programs/witness_node
+ENV WID
+ENV WKEY
 
 #公信宝的测试程序安装
 RUN cd /root && curl 'https://raw.githubusercontent.com/gxchain/gxb-core/dev_master/script/gxchain_install.sh' | bash \
@@ -21,4 +24,4 @@ WORKDIR /root
 EXPOSE 28090
 EXPOSE 9999
 
-ENTRYPOINT witness_node --data-dir=trusted_node --rpc-endpoint="0.0.0.0:28090" --p2p-endpoint="0.0.0.0:9999" $WID $WKEY
+ENTRYPOINT witness_node --data-dir=trusted_node --rpc-endpoint="0.0.0.0:28090" --p2p-endpoint="0.0.0.0:9999" -w $WID --private-key $WKEY
