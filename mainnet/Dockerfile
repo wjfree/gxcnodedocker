@@ -10,8 +10,8 @@ RUN apt install software-properties-common -y \
         
 #添加公信宝执行路径
 ENV PATH $PATH:/root/programs/witness_node
-ENV WID
-ENV WKEY
+ENV WID $WID
+ENV WKEY $WKEY
 
 #公信宝的测试程序安装
 RUN cd /root && curl 'https://raw.githubusercontent.com/gxchain/gxb-core/dev_master/script/gxchain_install.sh' | bash \
